@@ -13,7 +13,7 @@ const App = () => {
   }, [count]);
 
   return (
-  <div className={`min-h-screen bg-gradient-to-br from-yellow-600 to-indigo-400 flex flex-col item-center justify-center p-4
+  <div className={`min-h-screen bg-gradient-to-br from-yellow-600 to-indigo-400 flex flex-col items-center justify-center p-4
   transition-all duration-500`}>
     {/* Main Counter Card */}
     <div className={`bg-amber-700/20 backdrop-blur-lg rounded-xl shadow-2xl p-8 max-w-md w-full text-center relative overflow-hidden
@@ -41,10 +41,26 @@ const App = () => {
           hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50`}>
             -
           </button>
-          {/* part340--3:54 */}
+         <button
+         onClick={() => setCount(count + 1)}
+         className={`bg-yellow-800 hover:bg-red-400 text-white font-bold py-3 px-8 rounded-full transition-all hover:shadow-lg
+          active:scale-95 focus:outline-none focus-ring-2 focus:ring-rose-200 focus:ring-opacity-50`}>
+            +
+          </button>
         </div>
+        <button
+        onClick={() => setCount(0)}
+        className="mt-4 text-white hover:text-opacity-80 text-sm underline transition-colors">
+          بازنشانی
+        </button>
       </div>
-    
+
+      {/* Notification */}
+      {notification && (
+        <div className={`fixed bottom-4 right-4 bg-pink-900 text-white rounded-lg shadow-xl p-4 transition-all transform animate-bounce`}>
+          {notification}
+        </div>
+      )}    
   </div>
   );
 };
